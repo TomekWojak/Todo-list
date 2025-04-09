@@ -1,0 +1,230 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Annie Use Your Telescope", cursive;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.accent-text {
+  color: cornflowerblue;
+}
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 2em 1em;
+  width: 20%;
+  min-height: 100vh;
+  text-align: center;
+  box-shadow: 5px 5px 10px rgba(46, 46, 46, 0.0941176471);
+}
+
+h1 {
+  font-size: 6rem;
+  flex-grow: 1;
+}
+
+.underline {
+  position: absolute;
+  top: 8em;
+  left: 55%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background-color: cornflowerblue;
+}
+
+.counter {
+  flex-grow: 1;
+}
+
+.counter-info {
+  font-size: 6rem;
+}
+
+.addBtn {
+  position: absolute;
+  top: 3em;
+  right: 3em;
+  padding: 0.5em;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.addBtn:hover .fa-solid {
+  color: rgb(62, 99, 168);
+}
+
+.plusIcon {
+  font-size: 4rem;
+  color: cornflowerblue;
+  transition: color 0.3s;
+}
+
+.list {
+  width: 70%;
+  padding: 15em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  gap: 2em;
+  min-height: 100vh;
+  list-style-type: none;
+}
+
+.list li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 1em;
+  margin-inline-end: 1em;
+  width: 300px;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-size: 2.6rem;
+  text-align: center;
+  background-color: cornflowerblue;
+  border-radius: 5px;
+  color: #fff;
+  box-shadow: 5px 5px 10px rgba(46, 46, 46, 0.1803921569);
+  overflow: auto;
+}
+.list li:last-child {
+  margin-inline-end: 0;
+}
+.list li.completed {
+  background-color: #ADB6C8;
+  text-decoration: line-through;
+}
+
+.counter-info-bottom {
+  font-size: 2.4rem;
+}
+
+.tools {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.toolsIcon {
+  font-size: 2rem;
+  color: #fff;
+  transition: color 0.3s;
+  pointer-events: none;
+}
+
+.complete, .delete, .edit {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.complete:hover .toolsIcon, .delete:hover .toolsIcon, .edit:hover .toolsIcon {
+  color: #ded6d6;
+}
+
+.popup, .edit-popup {
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 55%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  padding: 2em;
+  border: 2px solid cornflowerblue;
+  box-shadow: 5px 5px 10px rgba(46, 46, 46, 0.1803921569);
+  background-color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  z-index: 1000;
+}
+.popup.active, .edit-popup.active {
+  display: flex;
+}
+
+.edit-popup-msg {
+  font-size: 2.4rem;
+}
+
+.accept, .dissmis {
+  padding: 0.4em 0.8em;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: inherit;
+  background-color: cornflowerblue;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.7rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.accept:hover, .dissmis:hover {
+  background-color: rgb(52, 107, 208);
+}
+
+h2 {
+  position: relative;
+  font-size: 3rem;
+}
+
+.popup-underline {
+  width: 130px;
+  height: 2px;
+  margin: 1em auto 3em;
+  background-color: cornflowerblue;
+}
+
+.popup-input, .edit-input {
+  width: 70%;
+  padding: 0.7em 1em;
+  border: 2px solid cornflowerblue;
+  border-radius: 5px;
+}
+
+.edit-input {
+  margin: 2em 0 1em;
+}
+
+.buttons {
+  width: 70%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2em;
+}
+
+.confirm, .cancel {
+  padding: 0.4em 0.8em;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: inherit;
+  background-color: cornflowerblue;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.7rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.confirm:hover, .cancel:hover {
+  background-color: rgb(52, 107, 208);
+}
+
+.popup-msg {
+  font-size: 2.4rem;
+  margin-bottom: 1em;
+}/*# sourceMappingURL=style.css.map */

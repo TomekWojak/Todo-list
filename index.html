@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/cdbdae0066.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="side-panel">
+    <h1>Todo <span class="accent-text">List</span></h1>
+    <div class="counter">
+        <p class="counter-info">Brak zadań na liście</p>
+    </div>
+    <div class="counter-bottom">
+            <p class="counter-info-bottom">Nie masz żadnych ukończonych zadań</p>
+    </div>
+</div>
+<div class="underline"></div>
+<button class="addBtn"><i class="fa-solid fa-plus plusIcon"></i></button>
+
+<ul class="list">
+</ul>
+
+<div class="popup">
+    <h2>Dodaj notatkę</h2>
+    <div class="popup-underline"></div>
+    <p class="popup-msg"></p>
+    <input type="text" class="popup-input" placeholder="Wpisz treść">
+    <div class="buttons"><button class="confirm">Akceptuj</button>
+<button class="cancel">Anuluj</button></div>
+</div>
+
+<div class="edit-popup">
+    <h2>Edytuj notatkę</h2>
+    <p class="edit-popup-msg"></p>
+    <input type="text" class="edit-input" placeholder="Wpisz treść">
+    <div class="buttons">
+        <button class="accept">Zapisz</button>
+        <button class="dissmis">Anuluj</button>
+    </div>
+</div>
+
+<script src="app.js"></script>    
+</body>
+</html>
