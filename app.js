@@ -124,10 +124,14 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     }
 
+    const isCompleted = (item) => {
+        return item.classList.contains('completed')
+    }
+
 
     const checkIfDone = () => {
         const allListItems = Array.from(document.querySelectorAll('.list li')) 
-        const checkifCompleted = allListItems.filter(item => item.classList.contains('completed'))
+        const checkifCompleted = allListItems.filter(isCompleted)
 
         if(checkifCompleted.length !== 0){
             counterInfoBottom.style.textAlign = 'left'
