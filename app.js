@@ -14,8 +14,11 @@ document.addEventListener('DOMContentLoaded', function(){
     const editInput = document.querySelector('.edit-input')
     const acceptEditPopupBtn = document.querySelector('.accept')
     const closeEditPopupBtn = document.querySelector('.dissmis')
+    const switcherSpan = document.querySelectorAll('.switcher-span')
+    const switcher = document.querySelector('.switcher')
     let newTask
     let editedTask
+    let allListItems
 
     const openPopup = () => {
         popup.classList.toggle('active')
@@ -29,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function(){
             addTools()
 
             ulList.append(newTask)
-
+            hideUnchecked()
             changeCounter()
 
             popup.classList.remove('active')
@@ -83,6 +86,10 @@ document.addEventListener('DOMContentLoaded', function(){
     const completeFunction = (e) => {
         editedTask = e.target.closest('li')
         editedTask.classList.toggle('completed')
+
+        if(switcher.classList.contains('active')){
+            editedTask.classList.add('hidden')
+        }
     }
 
     const showeditFunction = (e) => {
@@ -116,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     const changeCounter = () => {
-        const allListItems = document.querySelectorAll('.list li')
+        allListItems = document.querySelectorAll('.list li')
         if(allListItems.length === 0){
             counterInfo.textContent = 'Brak zadań na liście'
         }else {
@@ -130,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
     const checkIfDone = () => {
-        const allListItems = Array.from(document.querySelectorAll('.list li')) 
+        allListItems = Array.from(document.querySelectorAll('.list li')) 
         const checkifCompleted = allListItems.filter(isCompleted)
 
         if(checkifCompleted.length !== 0){
@@ -149,8 +156,52 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     }
 
-    // EVENTS
+    const switchFunction = () => {
+        const allListItems = Array.from(document.querySelectorAll('.list li'))
+        const completedItems = allListItems.filter(isCompleted)
+    
+        switcher.classList.toggle('active')
+        switcherSpan.forEach(span => span.classList.toggle('current'))
+    
+        if (completedItems.length !== 0 && allListItems.length !== 0) {
+            allListItems.forEach(item => {
+                if(!(item.classList.contains('completed'))){
+                    item.classList.toggle('hidden')
+                }
+            });
+        }else {
+            counterInfoBottom.textContent = 'Nie masz żadnych ukończonych zadań'
+            allListItems.forEach(item => {
+                if(!(item.classList.contains('completed'))){
+                    item.classList.toggle('hidden')
+                }
+            });
+        }
+        
+    }
 
+    const hideUnchecked = () => {
+        const allListItems = Array.from(document.querySelectorAll('.list li'))
+        const completedItems = allListItems.filter(isCompleted)
+        if(switcher.classList.contains('active') && completedItems.length === 0 && allListItems.length !== 0) {
+            allListItems.forEach(item => {
+                if(!(item.classList.contains('completed'))){
+                    item.classList.add('hidden')
+                }
+            });
+        }else if(switcher.classList.contains('active') && completedItems.length !== 0 && allListItems.length !== 0){
+            allListItems.forEach(item => {
+                if(!(item.classList.contains('completed'))){
+                    item.classList.add('hidden')
+                }
+            });
+        }
+  
+    }
+    
+
+    // EVENTS
+    switcher.addEventListener('click', switchFunction)
     popupInput.addEventListener('keyup', enterInit)
     editInput.addEventListener('keyup', enterInit)
     closeEditPopupBtn.addEventListener('click', closeEditPopup)

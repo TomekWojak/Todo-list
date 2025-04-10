@@ -32,7 +32,47 @@ html {
 
 h1 {
   font-size: 6rem;
+  margin-bottom: 0.5em;
+}
+
+.content {
   flex-grow: 1;
+}
+.content .switcher-span {
+  font-size: 2rem;
+  vertical-align: middle;
+}
+
+.switcher {
+  margin: 0 2em;
+  display: inline-block;
+  position: relative;
+  width: 50px;
+  height: 25px;
+  border-radius: 30px;
+  background-color: cornflowerblue;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.switcher::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(20%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: transform 0.3s;
+}
+.switcher.active::before {
+  transform: translate(130%, -50%);
+}
+
+.current {
+  color: cornflowerblue;
+  font-weight: 600;
 }
 
 .underline {
@@ -148,6 +188,9 @@ h1 {
 .list li.completed {
   background-color: #ADB6C8;
   text-decoration: line-through;
+}
+.list li.hidden {
+  display: none;
 }
 
 .counter-info-bottom {
